@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+COPY src/ .
+
+RUN dotnet restore Shortly.Api/Shortly.Api.csproj
+RUN dotnet publish Shortly.Api/Shortly.Api.csproj -c Release -o /app/release
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS prod
+
+ENV ASPNETCORE_ENVIRONMENT development
+
+EXPOSE 8080
+
+WORKDIR /app
+COPY --from=build /app/release .
+ENTRYPOINT ["dotnet", "Shortly.Api.dll"]
