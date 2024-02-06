@@ -1,8 +1,8 @@
 begin;
 
-CREATE SCHEMA shortly;
+CREATE SCHEMA dbo;
 
-create table shortly."short_url_mapping"
+create table dbo."short_url_mapping"
 (
     id text PRIMARY KEY,
     url text not null,

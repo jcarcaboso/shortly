@@ -13,7 +13,7 @@ internal sealed class MappingRepository(ShortlyContext context) : IMappingReposi
             Id = id,
             Url = destinationUrl
         }, ct);
-        await context.SaveChangesAsync(ct);
+        await context.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<UrlMapping>> GetAllAsync(CancellationToken ct)
@@ -21,7 +21,7 @@ internal sealed class MappingRepository(ShortlyContext context) : IMappingReposi
         return (await context.UrlMappings
                 .AsNoTrackingWithIdentityResolution()
             .ToListAsync(ct))
-            .Select(m => new UrlMapping(m.Id, m.Url, m.IsActive));
+            .Select(m => new UrlMapping(m.Id, m.Url, m.IsActive!.Value));
     }
 
     public async Task<string> GetMappingAsync(string id)

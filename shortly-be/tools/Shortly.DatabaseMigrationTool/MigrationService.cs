@@ -18,7 +18,7 @@ public sealed class MigrationService(string connection)
                 .PostgresqlDatabase(connection)
                 .WithScriptsEmbeddedInAssembly(
                     Assembly.GetExecutingAssembly(),
-                    s => s.Contains("Scripts"),
+                    s => s.Contains(".Scripts."),
                     Encoding.UTF8)
                 .LogToConsole()
                 .Build();

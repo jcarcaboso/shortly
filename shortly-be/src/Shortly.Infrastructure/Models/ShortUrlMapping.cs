@@ -8,5 +8,5 @@ public partial class ShortUrlMapping
 
     public DateTime CreationDate { get; set; }
 
-    public bool IsActive { get; set; } = true;
+    public bool? IsActive { get; set; } = true;
 }

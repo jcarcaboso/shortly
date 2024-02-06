@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
         services
             .AddDbContext<ShortlyContext>(opt =>
             {
-                opt.UseNpgsql(configuration.GetConnectionString(""));
+                opt.UseNpgsql(configuration.GetConnectionString("DB"));
             })
             .AddScoped<IMappingRepository, MappingRepository>();
 

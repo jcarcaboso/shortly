@@ -22,9 +22,9 @@ public partial class ShortlyContext : DbContext
     {
         modelBuilder.Entity<ShortUrlMapping>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("url_mapping_pkey");
+            entity.HasKey(e => e.Id).HasName("short_url_mapping_pkey");
 
-            entity.ToTable("url_mapping", "shortly");
+            entity.ToTable("short_url_mapping", "dbo");
 
             entity.Property(e => e.Id)
                 .HasColumnName("id");
