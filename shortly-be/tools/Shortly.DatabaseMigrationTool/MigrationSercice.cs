@@ -13,6 +13,7 @@ public sealed class MigrationService(string connection)
         try
         {
             EnsureDatabase.For.PostgresqlDatabase(connection);
+            var scripts = Assembly.GetExecutingAssembly();
             var upgradeEngine = DeployChanges.To
                 .PostgresqlDatabase(connection)
                 .WithScriptsEmbeddedInAssembly(

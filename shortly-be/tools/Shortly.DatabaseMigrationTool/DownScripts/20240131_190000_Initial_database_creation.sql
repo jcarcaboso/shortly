@@ -1,7 +1,7 @@
 begin;
 
-DROP TABLE shortly."short_url_mapping";
+DROP TABLE dbo."short_url_mapping";
 
-DROP SCHEMA shortly;
+DROP SCHEMA dbo;
 
 commit;

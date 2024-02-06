@@ -10,7 +10,7 @@ services:
     environment:
       - POSTGRES_DB=shortly
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - storage:/var/lib/postgresql/data
     networks:
@@ -23,7 +23,7 @@ services:
     env_file:
       - .env
     ports:
-      - "15433:80"
+      - 15433:80
     volumes:
       - ./pgadmin-data/:/var/lib/pgadmin/
     networks:
@@ -36,16 +36,14 @@ services:
     restart: unless-stopped
     build:
       context: ../
-      dockerfile: ../dockerfile
+      dockerfile: dockerfile
     environment:
-      ASPNETCORE_ENVIRONMENT: "development"
-      ConnectionStrings__DB: "Server=shortly-db:5432;Database=shortly;User Id=postgres;Password=postgres"
+      ASPNETCORE_ENVIRONMENT: development
+      ConnectionStrings__DB: Server=shortly-db:5432;Database=shortly;User Id=postgres;Password=postgres
     depends_on:
       - shortly-db
     ports:
-      - "5000:8080"
-    links:
-      - storage
+      - 5000:8080
     networks:
       - internal
 
