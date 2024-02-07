@@ -4,13 +4,14 @@ import Layout from "../layouts/Layout.astro";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { InputForm } from "@/components/input-form";
+import { MappingLink } from "@/components/mapping-link";
 ---
 
 <Layout title="Shortly">
 	<section class="flex flex-col gap-2 justify-center">
 		<div class="border-2 rounded-lg p-5">
 			<InputForm client:only />
-			<div></div>
+			<MappingLink client:visible />
 		</div>
 	</section>
 </Layout>
