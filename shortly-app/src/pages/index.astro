@@ -7,12 +7,10 @@ import { InputForm } from "@/components/input-form";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<section class="flex flex-col gap-2">
-			<div class="flex justify-center">
-				<InputForm client:only />
-			</div>
-			<div></div>
-		</section>
-	</main>
+	<section class="flex flex-col gap-2">
+		<div class="flex justify-center">
+			<InputForm client:only />
+		</div>
+		<div></div>
+	</section>
 </Layout>

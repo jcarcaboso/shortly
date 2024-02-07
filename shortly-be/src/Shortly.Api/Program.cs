@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Extensions;
 using Shortly.App;
 using Shortly.Infrastructure;
 
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddInfrastructure(builder.Configuration)
     .AddApplication();
+
+builder.Services.AddCors(opt =>
+    opt.AddDefaultPolicy(p =>
+        p.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod()));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
