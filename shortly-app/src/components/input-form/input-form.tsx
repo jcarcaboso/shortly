@@ -24,21 +24,22 @@ export const InputForm = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="flex flex-row gap-2 p-1 items-center bg-green-800"
-    >
-      <Label htmlFor="address">Insert URL</Label>
-      <Input
-        required
-        placeholder="Insert URL"
-        type="url"
-        id="address"
-        name="address"
-        value={form.address}
-        onChange={(e) => handleChange(e)}
-      />
-      <Button type="submit">Add</Button>
+    <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-2 p-4">
+      <Label htmlFor="address" className="pl-4">
+        Insert URL
+      </Label>
+      <div className="flex flex-row gap-2">
+        <Input
+          required
+          placeholder="Insert URL"
+          type="url"
+          id="address"
+          name="address"
+          value={form.address}
+          onChange={(e) => handleChange(e)}
+        />
+        <Button type="submit">Add</Button>
+      </div>
     </form>
   );
 };
